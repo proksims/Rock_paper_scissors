@@ -1,0 +1,143 @@
+:root {
+  --color: #21243d;
+  --color-container: rgb(250, 247, 241);
+  --color-main: rgba(136, 134, 134, 0.212);
+  --color-rock: #73e8f7;
+  --color-paper: #f0cc57;
+  --color-scissors: #bce756;
+  --main-size: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inconsolata", monospace;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  font-size: var(--main-size);
+  color: var(--color);
+  background-color: var(--color-container);
+   @media (max-width: 490px)  { 
+    font-size: 12px;
+   }
+   @media (max-width: 390px)  { 
+    font-size: 10px;
+   }
+
+}
+
+.container{
+    padding: 10px;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+/* ================================= MAIN =============================== */
+.main{
+  width: 100%;
+  max-width: 540px;
+  margin: 20vh auto 1vh;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+  background: var(--color-main);
+  
+}
+
+.main_header{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.main_header h1{
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.main_btn{
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.btn{
+ font-size: 4rem;
+ width: 7rem;
+ height: 7rem;
+  color: #000000;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  &:hover{
+    transition: all 0.2s ease 0s;
+    font-size: 4.5rem;
+  }
+}
+
+.rock{
+  background: var(--color-rock);
+  &:hover{
+    background: #73e8f76e;
+    box-shadow: 0px 0px 0px 0.1rem #73e8f76e;
+  }
+}
+.paper{
+  background: var(--color-paper);
+  &:hover{
+    background: #f0cc5773;
+    box-shadow: 0px 0px 0px 0.1rem #f0cc5773;
+  }
+}
+.scissors{
+  background: var(--color-scissors);
+  &:hover{
+    background: #bce75675;
+    box-shadow: 0px 0px 0px 0.1rem #bce75675;
+  }
+}
+
+.main_footer{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+/* ================================ FOOTER ============================== */
+.footer {  
+    text-align: center;
+    padding: 2rem 0rem;
+}
+
+.footer_social {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  .social_item {
+    margin: 0rem 0.71rem;
+  }
+}
+.social_item {
+  font-size: 2.2rem;
+  color: #21243d;
+  transition: all 0.2s ease 0s;
+  &:hover {
+    color: #e05c5c;
+  }
+}
+
+.footer_made {
+  font-size: 1.2rem;
+}
