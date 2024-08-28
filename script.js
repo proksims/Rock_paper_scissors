@@ -1,7 +1,6 @@
-
 const game = () => {
-    let countComputer = 0;
-    let countPlayer= 0;
+    let countComputer_ = 0;
+    let countPlayer_= 0;
     const choose_win = {
         'rock' : {
             'rock' : 'draw',
@@ -21,7 +20,9 @@ const game = () => {
     }
     let chooseComputer = document.querySelector('#choose_computer');
     let choosePlayer = document.querySelector('#choose_player');
-    
+    let result = document.querySelector('#result');
+    let countComputer = document.querySelector('#count_computer');
+    let countPlayer = document.querySelector('#count_player');
 
     const randomComputer = () => {
         const computerOptions = ['rock', 'paper', 'scissors'];
@@ -34,36 +35,66 @@ const game = () => {
         const paper = document.querySelector('.paper');
         const scissors = document.querySelector('.scissors');
         const playerOptions = [rock, paper, scissors];
+        const reset = document.querySelector('.btn_reset');
+
+        reset.addEventListener('click', function(){
+            countComputer_ = 0;
+            countPlayer_= 0;
+            countComputer.textContent = countComputer_;
+            countPlayer.textContent = countPlayer_;
+            result.textContent = '';
+            choosePlayer.textContent = '';
+            chooseComputer.textContent = '';
+        })
+        
         playerOptions.forEach(option => {
             console.log('option', option, option.classList[1])
             option.addEventListener('click', function() {
-                choosePlayer.textContent = this.classList[1];
-                chooseComputer.textContent = randomComputer();
+                // choose player
+                let rock_paper_scissors_p = this.classList[1];
+                if(rock_paper_scissors_p === 'rock'){
+                    choosePlayer.style = "color: var(--color-rock);";
+                } else if(rock_paper_scissors_p === 'paper'){
+                    choosePlayer.style = "color: var(--color-paper);";
+                } else if(rock_paper_scissors_p === 'scissors'){
+                    choosePlayer.style = "color: var(--color-scissors);";
+                }
+                choosePlayer.textContent = rock_paper_scissors_p;
+                // choose computer
+                let rock_paper_scissors_c = randomComputer();
+                if(rock_paper_scissors_c === 'rock'){
+                    chooseComputer.style = "color: var(--color-rock);";
+                } else if(rock_paper_scissors_c === 'paper'){
+                    chooseComputer.style = "color: var(--color-paper);";
+                } else if(rock_paper_scissors_c === 'scissors'){
+                    chooseComputer.style = "color: var(--color-scissors);";
+                }
+                chooseComputer.textContent = rock_paper_scissors_c;
+                
                 getResult();
             })
         })
     }
 
     const getResult = () => {
-        let result = document.querySelector('#result');
         switch(choose_win[choosePlayer.textContent][chooseComputer.textContent]){
             case 'win':
                     result.style = "color: green;";
                     result.textContent = 'win';
-                    countPlayer++;
+                    countPlayer_++;
                 break;
             case 'lose':
                     result.style = "color: red;";
                     result.textContent = 'lose';
-                    countComputer++;
+                    countComputer_++;
                 break;
             default:
                 result.style = "color: grey;";
                 result.textContent = 'draw';
                 break;
         }
-        document.querySelector('#count_computer').textContent = countComputer;
-        document.querySelector('#count_player').textContent = countPlayer;
+        countComputer.textContent = countComputer_;
+        countPlayer.textContent = countPlayer_;
     }
 
     play();
@@ -71,76 +102,3 @@ const game = () => {
 }
 
 game();
-
-
-    // let countComputer = 0;
-    // let countPlayer= 0;
-
-    // let chooseComputer = document.querySelector('#choose_computer');
-    // let choosePlayer = document.querySelector('#choose_player');
-    
-    // const choose_win = {
-    //     'rock' : {
-    //         'rock' : 'draw',
-    //         'scissors' : 'win',
-    //         'paper' : 'lose'
-    //     },
-    //     'paper' : {
-    //         'rock' : 'win',
-    //         'scissors' : 'lose',
-    //         'paper' : 'draw'
-    //     },
-    //     'scissors' : {
-    //         'rock' : 'lose',
-    //         'scissors' : 'draw',
-    //         'paper' : 'win'
-    //     }
-    // }
-
-    // function clickRock() {
-    //     choosePlayer.textContent = 'rock';
-    //     chooseComputer.textContent = randomComputer();
-    //     getResult();
-    // }
-    
-    // function clickPaper() {
-    //     choosePlayer.textContent = 'paper';
-    //     chooseComputer.textContent = randomComputer();
-    //     getResult();
-    // }
-    
-    // function clickScissors() {
-    //     choosePlayer.textContent = 'scissors';
-    //     chooseComputer.textContent = randomComputer();
-    //     getResult();
-    // }
-    
-    // function randomComputer(){
-    //     const choose = ['rock', 'paper', 'scissors'];
-    //     const random = Math.floor(Math.random() * 3);
-    //     return choose[random];
-    // }
-    
-    // function getResult() {
-    //     let result = document.querySelector('#result');
-        
-    //     switch(choose_win[choosePlayer.textContent][chooseComputer.textContent]){
-    //         case 'win':
-    //                 result.style = "color: green;";
-    //                 result.textContent = 'win';
-    //                 countPlayer++;
-    //             break;
-    //         case 'lose':
-    //                 result.style = "color: red;";
-    //                 result.textContent = 'lose';
-    //                 countComputer++;
-    //             break;
-    //         default:
-    //             result.style = "color: grey;";
-    //             result.textContent = 'draw';
-    //             break;
-    //     }
-    //     document.querySelector('#count_computer').textContent = countComputer;
-    //     document.querySelector('#count_player').textContent = countPlayer;
-    // }
- 
