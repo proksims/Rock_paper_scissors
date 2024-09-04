@@ -2,9 +2,12 @@
   --color: #21243d;
   --color-container: rgb(250, 247, 241);
   --color-main: rgba(136, 134, 134, 0.212);
-  --color-rock: #73e8f7;
-  --color-paper: #f0cc57;
-  --color-scissors: #bce756;
+  --color-rock: #19ABA0;
+  --color-paper: #c753aa;
+  --color-scissors: #e48a36;
+  --color-rock-hover: #19ab9fcb;
+  --color-paper-hover: #c753aad0;
+  --color-scissors-hover: #e48a36d5;
   --main-size: 14px;
 }
 
@@ -30,29 +33,27 @@ html {
 
 }
 
+
 .container{
     padding: 10px;
     width: 100vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
-
 
 
 /* ================================= MAIN =============================== */
 .main{
   width: 100%;
   max-width: 540px;
-  margin: 20vh auto 1vh;
   padding: 2rem;
+  margin-bottom: 10vh;
   border-radius: 10px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
   background: var(--color-main);
-  
 }
 
 .main_header{
@@ -72,38 +73,41 @@ html {
 }
 
 .btn{
- font-size: 4rem;
- width: 7rem;
- height: 7rem;
-  color: #000000;
-  border-radius: 50%;
+  font-size: 4rem;
+  width: 7rem;
+  height: 7rem;
+  color: #f3f703;
+  border-radius: 20%;
   border: none;
   cursor: pointer;
   &:hover{
     transition: all 0.2s ease 0s;
     font-size: 4.5rem;
   }
+  &:active{
+    font-size: 4.2rem;
+  }
 }
 
 .rock{
   background: var(--color-rock);
   &:hover{
-    background: #73e8f76e;
-    box-shadow: 0px 0px 0px 0.1rem #73e8f76e;
+    background: var(--color-rock-hover);
+    box-shadow: 0px 0px 0px 2px var(--color-rock-hover);
   }
 }
 .paper{
   background: var(--color-paper);
   &:hover{
-    background: #f0cc5773;
-    box-shadow: 0px 0px 0px 0.1rem #f0cc5773;
+    background: var(--color-paper-hover);
+    box-shadow: 0px 0px 0px 0.1rem var(--color-paper-hover);
   }
 }
 .scissors{
   background: var(--color-scissors);
   &:hover{
-    background: #bce75675;
-    box-shadow: 0px 0px 0px 0.1rem #bce75675;
+    background: var(--color-scissors-hover);
+    box-shadow: 0px 0px 0px 0.1rem var(--color-scissors-hover);
   }
 }
 
@@ -112,6 +116,25 @@ html {
     text-align: center;
     margin-top: 4rem;
     margin-bottom: 2rem;
+}
+
+.btn_reset{
+  font-size: 1.5rem;
+  color: var(--color);
+  /* border: 2px solid var(--color); */
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  background: #00000013;
+  cursor: pointer;
+  &:hover{
+    background: #00000021;
+  }
+  &:active{
+    background: #0000002f;
+  }
+
 }
 
 /* ================================ FOOTER ============================== */
